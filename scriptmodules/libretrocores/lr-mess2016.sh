@@ -14,7 +14,11 @@ rp_module_desc="MESS emulator - MESS Port for libretro"
 rp_module_help="see wiki for detailed explanation"
 rp_module_licence="GPL2 https://raw.githubusercontent.com/libretro/mame2016-libretro/master/LICENSE.md"
 rp_module_section="exp"
-rp_module_flags="nobin"
+rp_module_flags=""
+
+function depends_lr-mess2016() {
+    depends_lr-mame2016
+}
 
 function sources_lr-mess2016() {
     gitPullOrClone "$md_build" https://github.com/libretro/mame2016-libretro.git
