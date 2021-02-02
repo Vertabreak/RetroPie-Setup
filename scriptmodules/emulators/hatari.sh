@@ -28,7 +28,7 @@ function _sources_libcapsimage_hatari() {
 
 function sources_hatari() {
     # shallow clone isn't supported via https:// on this repo
-    gitPullOrClone "$md_build" "git://git.tuxfamily.org/gitroot/hatari/hatari.git" "v2.3.0"
+    gitPullOrClone "$md_build" "git://git.tuxfamily.org/gitroot/hatari/hatari.git" "v2.3.1"
     _sources_libcapsimage_hatari
 }
 
@@ -42,6 +42,8 @@ function _build_libcapsimage_hatari() {
     mkdir -p "$md_build/src/includes/caps"
     cp -R "../LibIPF/"*.h "$md_build/src/includes/caps/"
     cp "../Core/CommonTypes.h" "$md_build/src/includes/caps/"
+    # 'lr-hatari' expects a 'caps5' include path
+    ln -sf "$md_build/src/includes/caps" "$md_build/src/includes/caps5"
 }
 
 function build_hatari() {
